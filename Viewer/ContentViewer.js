@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import classes from "./CaseStudy.module.css";
+import classes from "./ContentViewer.module.css";
 import { Editor } from "react-draft-wysiwyg";
 import {
   EditorState,
@@ -37,7 +37,10 @@ class CaseStudy extends Component {
     image = caseStudies[name].imageUrl;
     let content = caseStudies[name];
     if (content != null) {
+      /* Parse the Editor State*/ 
       let conentJson = JSON.parse(content.editorState);
+      
+      /*Convert from RAW the parsed editor state and Create a new Editor State */ 
       let editorState = EditorState.createWithContent(
         convertFromRaw(JSON.parse(content.editorState))
       );
